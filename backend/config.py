@@ -1,10 +1,8 @@
-import os
+from typing import Union
 
 import torch
-import torch.nn as nn
-from torchvision import models, transforms
-
-MODEL_PATH = "backend/model/"
+from torch.jit import RecursiveScriptModule
+from torchvision import transforms
 
 IMSIZE = 256
 LOADER = transforms.Compose([transforms.Scale(IMSIZE), transforms.ToTensor()])
@@ -63,6 +61,10 @@ CLASS_NAMES = ['Admiral Ackbar',
 
 
 def build_model():
+    """
+    Load the model for inference
+    :return: Loaded Pytorch model
+    """
     model_ft = torch.load("backend/model/entire_model.pt")
     model_ft.eval()
 

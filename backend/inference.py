@@ -1,29 +1,32 @@
-import io
-import os
-
-import cv2 as cv
 import torch
 from PIL import Image
+from typing import Optional, IO
 
 from backend import config
 
 loader = config.LOADER
 
 
-def image_loader(image_name):
+def image_loader(image_file: Optional[IO]) -> list:
     """
     Loads image, returns tensor
-    :param image_name: string
-    :return: torch tensor
+    :param image_file: String
+    :return: Torch tensor
     """
-    picture = Image.open(image_name)
+    picture = Image.open(image_file)
     picture = loader(picture).float()
     picture = torch.autograd.Variable(picture, requires_grad=True)
     picture = picture.unsqueeze(0)
     return picture
 
 
-def predict(model, img):
+def predict(model, img: list) -> str:
+    """
+
+    :param model: Pytorch model
+    :param img: Torch tensor
+    :return: Name of the predicted character
+    """
     was_training = model.training
     model.eval()
 
@@ -33,11 +36,3 @@ def predict(model, img):
         model.train(mode=was_training)
 
     return config.CLASS_NAMES[prediction]
-
-
-"""path = [path for path in os.listdir("pred")
-        if not path.endswith(".ipynb") and not path.endswith(".ipynb_checkpoints")][0]
-imagen = cv.imread(os.path.join(r"pred", path))
-image = image_loader(os.path.join(r"pred", path))
-predict(classifier, image, imagen)
-os.remove(os.path.join(r"pred", path))"""
