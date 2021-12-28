@@ -1,0 +1,10 @@
+.vscode
+!**/__pycache__/
+.idea
+/.idea
+# Project exclude paths
+/venv/
+/backend/model/entire_model.pt
+/__pycache__/
+backend/__pycache__
+backend/__pycache__/
