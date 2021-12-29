@@ -21,29 +21,43 @@ if st.button("Predict"):
         res = requests.post(f"http://127.0.0.1:8080/predict", files=files, timeout=3)
         img_path = res.json()
         st.header(f"Predicted Character: {img_path.get('character')}")
-        st.image(image, width=500)
+        st.image(image, use_column_width=True)
 
+
+# Hide Streamlit's footer
 hide_footer_style = """
     <style>
     .reportview-container .main footer {visibility: hidden;}    
+    </style>
     """
 st.markdown(hide_footer_style, unsafe_allow_html=True)
 
+# Add personal footer
 footer = """
 <style>
 .footer {
+font-family:sans-serif;
 position: fixed;
 left: 0;
 bottom: 0;
 width: 100%;
-background-color: white;
-color: black;
+color: tomato;
 text-align: center;
 }
 </style>
 <div class="footer">
 <p>Developed by <a text-align: center;' href="https://github.com/exequielmoneva" target=”_blank”>
-Exequiel Moneva</a>
+Exequiel Moneva</a></p>
 </div>
 """
 st.markdown(footer, unsafe_allow_html=True)
+
+# Hide Main Menu
+hide_menu = """
+<style>
+#MainMenu{
+    visibility:hidden;
+}
+</style>
+"""
+st.markdown(hide_menu, unsafe_allow_html=True)
