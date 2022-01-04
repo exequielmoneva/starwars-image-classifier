@@ -2,7 +2,7 @@ import torch
 from PIL import Image
 from typing import Optional, IO
 
-from backend import config
+import config
 
 loader = config.LOADER
 

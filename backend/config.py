@@ -1,7 +1,4 @@
-from typing import Union
-
 import torch
-from torch.jit import RecursiveScriptModule
 from torchvision import transforms
 
 IMSIZE = 256
@@ -65,7 +62,7 @@ def build_model():
     Load the model for inference
     :return: Loaded Pytorch model
     """
-    model_ft = torch.load("backend/model/entire_model.pt")
+    model_ft = torch.load("model/entire_model.pt")
     model_ft.eval()
 
     return model_ft
