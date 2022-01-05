@@ -20,7 +20,7 @@ image = st.file_uploader("Choose an image")
 if st.button("Predict"):
     if image is not None:
         files = {"file": image}
-        res = requests.post('http://starwars-image-classifier_backend_1:8080/predict', files=files, timeout=12)
+        res = requests.post('http://starwars-image-classifier_backend:8080/predict', files=files, timeout=12)
         img_path = res.json()
         st.header(f"Predicted Character: {img_path.get('character')}")
         st.image(image, use_column_width=True)
