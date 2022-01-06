@@ -1,3 +1,5 @@
+import os
+
 import torch
 from PIL import Image
 from typing import Optional, IO

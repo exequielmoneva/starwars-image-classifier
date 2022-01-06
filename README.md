@@ -8,9 +8,12 @@
  - Pytorch
 
 # About the model
-### This Machine Learning model has been built using Pytorch and the Transfer learning technique over the [VGG16 Convolutional Network.](https://neurohive.io/en/popular-networks/vgg16/)
+### This Machine Learning model has been built using Pytorch and the Transfer learning technique over the [VGG16 Convolutional Network](https://neurohive.io/en/popular-networks/vgg16/). The images were taken from [this Kaggle's dataset](https://www.kaggle.com/mathurinache/star-wars-images/).
 
-### My Jupyter Notebooks can be found within this repo, inside the "notebooks" folder.
+# Jupyter notebooks
+ - [split_data](notebooks/split_data.ipynb): Script for splitting the data into train and test sets
+ - [model_training](notebooks/model_training.ipynb): Notebook containing the process for the model's training
+ - [model_inference](notebooks/model_inference.ipynb): Test the model against single images chosen by the user 
 
 # Requirements
  - Docker
