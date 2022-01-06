@@ -1,8 +1,7 @@
-import os
+from typing import Optional, IO
 
 import torch
 from PIL import Image
-from typing import Optional, IO
 
 import config
 
