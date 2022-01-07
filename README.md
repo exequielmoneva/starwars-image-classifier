@@ -37,3 +37,15 @@ Now, you should be able to test the webapp at:
 ```
 http://localhost:8501/
 ```
+
+You can also test the documented endpoints without the frontend at
+```
+http://localhost:8080/docs
+```
+
+## API specification
+
+| Task | URL | Method | Response code | Response |
+|:----:|:---:|:------:|:-------------:|:--------:|
+| Check API health | /health| GET | 200 | API is up |
+| Predict a character | /predict | POST | 200 | Predicted character |
